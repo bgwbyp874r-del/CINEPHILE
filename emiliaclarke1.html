@@ -119,12 +119,14 @@
         }
 
         /* Image Styling */
-        .media-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
+      .media-card img {
+    width: 100%;
+    height: 350px;       /* ෆොටෝ එක පෙන්වන්න ඕන උපරිම උස */
+    object-fit: contain; /* 🌟 පින්තූරය කැපෙන්නේ නැතුව ඔක්කොම පෙන්වීමට මෙය අනිවාර්යයි */
+    background-color: #050505; /* ෆොටෝ එක දෙපැත්තෙන් හිස් තැන් ආවොත් කළු පාටින් වැසීමට */
+    display: block;
+}
+
 
         /* Video / Iframe Wrapper (16:9 Aspect Ratio) */
         .video-wrapper {
