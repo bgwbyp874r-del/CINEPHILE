@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINEPHILE - Verification</title>
+    <title>CINEPHILE - Emilia Clarke</title>
+    <!-- Font Awesome icons සඳහා (Back button එකට) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base Styling */
+        /* Base Colors & Styling (image.png එකේ theme එකට අනුව) */
         * {
             margin: 0;
             padding: 0;
@@ -17,102 +18,10 @@
         body {
             background-color: #0b0c10;
             color: #ffffff;
-            min-height: 100vh;
-        }
-
-        /* 1. Login Page Styling */
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            background: radial-gradient(circle, #1f1216 0%, #0b0c10 100%);
-        }
-
-        .login-box {
-            background-color: #15161a;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            border: 1px solid #222;
-        }
-
-        .login-box h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .login-box h2 span {
-            color: #e50914;
-        }
-
-        .login-box p {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            color: #ccc;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 14px;
-            background-color: #0b0c10;
-            border: 1px solid #333;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .input-group input:focus {
-            border-color: #e50914;
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background-color: #e50914;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .login-btn:hover {
-            background-color: #b80710;
-        }
-
-        .login-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* 2. Main Gallery Page Styling (Hidden by default) */
-        #gallery-page {
-            display: none; /* මුලින්ම සඟවා ඇත */
             padding-bottom: 50px;
         }
 
+        /* Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
@@ -132,7 +41,7 @@
         }
 
         .logo span {
-            color: #e50914;
+            color: #e50914; /* Red accent color */
         }
 
         .back-btn {
@@ -149,6 +58,7 @@
             color: #e50914;
         }
 
+        /* Hero Section */
         .hero-section {
             text-align: center;
             padding: 40px 20px;
@@ -167,51 +77,69 @@
 
         .hero-section p {
             color: #888;
+            font-size: 1rem;
             max-width: 600px;
             margin: 0 auto;
         }
 
+        /* Category Tabs (Photos / Videos) */
         .section-title {
             padding: 20px;
             max-width: 1200px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto;
             font-size: 1.5rem;
             border-bottom: 2px solid #e50914;
             width: fit-content;
+            margin-bottom: 25px;
         }
 
-        .media-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-        }
+      /* Container එක Grid වෙනුවට Columns විදිහට සකසන්න */
+.media-container {
+    column-count: 3; /* Screen එකේ පේලි කීයක් පේන්න ඕනද (ලැප්ටොප් වලට 3ක් හොඳයි) */
+    column-gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .media-card {
-            background-color: #15161a;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+/* Card එක ඇතුලේ elements කැඩී යාම වැලැක්වීමට */
+.media-card {
+    background-color: #15161a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Cards අතර පරතරය */
+    display: inline-block; /* Masonry වැඩ කිරීමට මෙය අනිවාර්යයි */
+    width: 100%;
+}
 
-        .media-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.2);
-        }
+.media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.2);
+}
 
-        .media-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
+/* 🌟 Image Styling (Original Ratio එකෙන්ම පෙන්වයි) */
+.media-card img {
+    width: 100%;
+    height: auto; /* 👈 උස Auto දුන්නම ෆොටෝ එකේ සයිස් එකටම හැඩගැහෙනවා */
+    display: block;
+}
 
+/* Mobile Devices සඳහා Column ගණන අඩු කිරීම */
+@media (max-width: 768px) {
+    .media-container { column-count: 2; }
+}
+@media (max-width: 480px) {
+    .media-container { column-count: 1; }
+}
+
+
+
+        /* Video / Iframe Wrapper (16:9 Aspect Ratio) */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 ratio */
             height: 0;
             overflow: hidden;
         }
@@ -225,6 +153,7 @@
             border: 0;
         }
 
+        /* Card Info */
         .card-info {
             padding: 15px;
         }
@@ -242,115 +171,101 @@
 
         .card-info h3 {
             font-size: 1.1rem;
+            color: #fff;
         }
 
+        /* Mobile Responsive adjustments */
         @media (max-width: 600px) {
-            .hero-section h1 { font-size: 2rem; }
-            .media-container { grid-template-columns: 1fr; }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .media-container {
+                grid-template-columns: 1fr; /* මොබයිල් වලදී එක පේලියට එකක් පෙන්වීමට */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== 1. LOGIN SECTION ==================== -->
-    <div id="login-page" class="login-container">
-        <div class="login-box">
-            <h2>CINEPHILE<span>.</span></h2>
-            <p>Enter credentials to unlock asset vault</p>
-            
-            <form id="loginForm" onsubmit="validateLogin(event)">
-                <div class="input-group">
-                    <label>Username</label>
-                    <input type="text" id="username" placeholder="Enter username" required autocomplete="off">
-                </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" id="password" placeholder="Enter password" required>
-                </div>
-                <button type="submit" class="login-btn">Verify & Access</button>
-            </form>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-film" style="color: #e50914;"></i> CINEPHILE<span>.</span>
         </div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Emilia <span>Clarke</span></h1>
+        <p>Explore exclusive media archives, photo galleries, and video highlights of the global cinema icon.</p>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="media-container">
+
+
+     
+        
+        <!-- Photo Card 1 -->
+        <div class="media-card">
+            <!-- ඔයාට අවශ්‍ය Online Image Link එක මෙතන src="" එකට දාන්න -->
+            <img src=" https://cdn2.aznude.com/emiliaclarke/ponies/emilia_clarke_39182b.jpg" alt="Emilia Clarke">
+            <div class="card-info">
+                <span class="tag">Photoshoot</span>
+                <h3>Editorial Portrait</h3>
+            </div>
+        </div>
+
+        <!-- Photo Card 2 -->
+        <div class="media-card">
+            <img src="https://cdn2.aznude.com/emiliaclarke/ponies/emilia_clarke_16a9ed.jpg" alt="Emilia Clarke">
+            <div class="card-info">
+                <span class="tag">Event</span>
+                <h3>Red Carpet Appearance</h3>
+            </div>
+        </div>
+
+        <!-- Photo Card 3 -->
+        <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Emilia Clarke">
+            <div class="card-info">
+                <span class="tag">Movie Still</span>
+                <h3>Behind The Scenes</h3>
+            </div>
+        </div>
+
     </div>
 
-
-    <!-- ==================== 2. MAIN GALLERY SECTION ==================== -->
-    <div id="gallery-page">
-        <!-- Header -->
-        <header>
-            <div class="logo">
-                <i class="fa-solid fa-film" style="color: #e50914;"></i> CINEPHILE<span>.</span>
+    <!-- Video Gallery Section -->
+    <h2 class="section-title">Videos & Trailers</h2>
+    <div class="media-container">
+        
+        <!-- Video Card 1 (YouTube Embed) -->
+        <div class="media-card">
+            <div class="video-wrapper">
+                <!-- YouTube Share Embed link එකක් මෙතනට දාන්න -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
             </div>
-            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1>Emilia <span>Clarke</span></h1>
-            <p>Explore exclusive media archives, photo galleries, and video highlights of the global cinema icon.</p>
-        </section>
-
-        <!-- Photos -->
-        <h2 class="section-title">Photo Gallery</h2>
-        <div class="media-container">
-            <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Emilia Clarke">
-                <div class="card-info">
-                    <span class="tag">Photoshoot</span>
-                    <h3>Editorial Portrait</h3>
-                </div>
-            </div>
-            <div class="media-card">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Emilia Clarke">
-                <div class="card-info">
-                    <span class="tag">Event</span>
-                    <h3>Red Carpet Appearance</h3>
-                </div>
+            <div class="card-info">
+                <span class="tag">Interview</span>
+                <h3>Exclusive Interview</h3>
             </div>
         </div>
 
-        <!-- Videos -->
-        <h2 class="section-title">Videos & Trailers</h2>
-        <div class="media-container">
-            <div class="media-card">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                </div>
-                <div class="card-info">
-                    <span class="tag">Interview</span>
-                    <h3>Exclusive Interview</h3>
-                </div>
+        <!-- Video Card 2 (YouTube Embed) -->
+        <div class="media-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+            <div class="card-info">
+                <span class="tag">Trailer</span>
+                <h3>Official Movie Trailer</h3>
             </div>
         </div>
+
     </div>
-
-
-    <!-- ==================== JAVASCRIPT VERIFICATION ==================== -->
-    <script>
-        function validateLogin(event) {
-            // Form එක submit වෙලා page එක refresh වෙන එක නවත්වනවා
-            event.preventDefault(); 
-
-            // Input values ලබා ගැනීම
-            const userInp = document.getElementById('username').value.trim();
-            const passInp = document.getElementById('password').value.trim();
-
-            // නියමිත නිවැරදි Username සහ Password
-            const correctUser = "20061004";
-            const correctPass = "@Anuradha99";
-
-            if (userInp === correctUser && passInp === correctPass) {
-                // හරි නම්: Login box එක සඟවා Gallery එක පෙන්වන්න
-                document.getElementById('login-page').style.display = 'none';
-                document.getElementById('gallery-page').style.style.display = 'block';
-                // (සමහර browser වල ගැටළු මගහරවා ගන්න display style එක direct update එකක්)
-                document.getElementById('gallery-page').setAttribute("style", "display:block");
-            } else {
-                // වැරදි නම්: Alert එකක් දීලා Home Page (index.html) එකට හරවා යැවීම
-                alert("❌ Invalid Credentials! Access Denied. Redirecting to Home...");
-                window.location.href = "index.html"; 
-            }
-        }
-    </script>
 
 </body>
 </html>
