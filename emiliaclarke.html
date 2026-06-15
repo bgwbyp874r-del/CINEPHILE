@@ -128,13 +128,13 @@
             const correctPass = "@Anuradha99";
 
             if (userInp === correctUser && passInp === correctPass) {
-                // ලොගින් හරිනම් කෙලින්ම emiliaclarke.html පේජ් එකට යනවා
-                window.location.href = "emiliaclarke.html";
-            } else {
-                // වැරදි නම් Alert එකක් දීලා මුල් හෝම් පේජ් එකට යනවා
-                alert("❌ Invalid Credentials! Access Denied. Redirecting to Home...");
-                window.location.href = "index.html"; 
-            }
+    // දැනට තියෙන පේජ් එක උඩම කෙලින්ම open කිරීමට
+    window.location.replace("emiliaclarke.html");
+} else {
+    alert("❌ Invalid Credentials! Access Denied. Redirecting to Home...");
+    window.location.replace("index.html"); 
+}
+
         }
     </script>
 
