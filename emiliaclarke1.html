@@ -194,6 +194,52 @@
     <!-- Photo Gallery Section -->
     <h2 class="section-title">Photo Gallery</h2>
     <div class="media-container">
+
+
+        <!-- HTML කොටස (පින්තූර ලෝඩ් වෙන්න ඕන තැනට මේක විතරක් දාන්න) -->
+<h2 class="section-title">Photo Archives</h2>
+
+<!-- මේ div එක ඇතුලට තමයි ලින්ක්ස් ටික auto හැදෙන්නේ -->
+<div id="galleryContainer" class="dynamic-gallery"></div>
+
+
+<!-- JAVASCRIPT කොටස (මෙය </body> tag එකට කලින් දාන්න) -->
+<script>
+    // 1. ඔයාගේ ඔක්කොම Online Photo Links ටික මෙන්න මේ වරහන් [ ] ඇතුලට දාන්න.
+    // උදාහරණයක් විදිහට මම ලින්ක්ස් 3ක් දාලා තියෙන්නේ. ඔයාට කැමති ගාණක් මේ විදිහට කමා (,) දාලා එකතු කරන්න පුළුවන්.
+    const photoLinks = [
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
+        "https://cdn2.aznude.com/emiliaclarke/ponies/emilia_clarke_39182b.jpg",
+ "https://cdn2.aznude.com/emiliaclarke/ponies/emilia_clarke_16a9ed.jpg",
+"https://cdn2.aznude.com/emiliaclarke/ponies/emilia_clarke_7eb6db.jpg"
+
+    
+    ];
+
+    // 2. ප්‍රධාන Gallery Container එක select කර ගැනීම
+    const galleryContainer = document.getElementById('galleryContainer');
+
+    // 3. ලින්ක්ස් ලිස්ට් එකේ තියෙන හැම ලින්ක් එකකටම auto div එකක් සෑදීම
+    photoLinks.forEach((link, index) => {
+        
+        const card = document.createElement('div');
+        card.className = 'image-card';
+
+        // index එක 0න් පටන් ගන්න නිසා පිළිවෙල හදන්න (index + 1) කරලා තියෙනවා
+        card.innerHTML = `
+            <img src="${link}" alt="Emilia Clarke Asset" loading="lazy">
+            <div class="details">
+                <span>Asset ${String(index + 1).padStart(2, '0')}</span>
+            </div>
+        `;
+
+        // සාදාගත් card එක gallery එකට එකතු කිරීම
+        galleryContainer.appendChild(card);
+    });
+</script>
+
         
         <!-- Photo Card 1 -->
         <div class="media-card">
