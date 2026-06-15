@@ -93,39 +93,47 @@
             margin-bottom: 25px;
         }
 
-        /* Media Grid Layout */
-        .media-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 20px;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-        }
+      /* Container එක Grid වෙනුවට Columns විදිහට සකසන්න */
+.media-container {
+    column-count: 3; /* Screen එකේ පේලි කීයක් පේන්න ඕනද (ලැප්ටොප් වලට 3ක් හොඳයි) */
+    column-gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        /* Media Cards (Images & Videos) */
-        .media-card {
-            background-color: #15161a;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .media-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.2);
-        }
-
-        /* Image Styling */
-      .media-card img {
+/* Card එක ඇතුලේ elements කැඩී යාම වැලැක්වීමට */
+.media-card {
+    background-color: #15161a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Cards අතර පරතරය */
+    display: inline-block; /* Masonry වැඩ කිරීමට මෙය අනිවාර්යයි */
     width: 100%;
-    height: 350px;       /* ෆොටෝ එක පෙන්වන්න ඕන උපරිම උස */
-    object-fit: contain; /* 🌟 පින්තූරය කැපෙන්නේ නැතුව ඔක්කොම පෙන්වීමට මෙය අනිවාර්යයි */
-    background-color: #050505; /* ෆොටෝ එක දෙපැත්තෙන් හිස් තැන් ආවොත් කළු පාටින් වැසීමට */
+}
+
+.media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(229, 9, 20, 0.2);
+}
+
+/* 🌟 Image Styling (Original Ratio එකෙන්ම පෙන්වයි) */
+.media-card img {
+    width: 100%;
+    height: auto; /* 👈 උස Auto දුන්නම ෆොටෝ එකේ සයිස් එකටම හැඩගැහෙනවා */
     display: block;
 }
+
+/* Mobile Devices සඳහා Column ගණන අඩු කිරීම */
+@media (max-width: 768px) {
+    .media-container { column-count: 2; }
+}
+@media (max-width: 480px) {
+    .media-container { column-count: 1; }
+}
+
 
 
         /* Video / Iframe Wrapper (16:9 Aspect Ratio) */
