@@ -117,26 +117,6 @@
         </form>
     </div>
 
-    <script>
-        function validateLogin(event) {
-            event.preventDefault(); // Page refresh වෙන එක නවත්තනවා
-
-            const userInp = document.getElementById('username').value.trim();
-            const passInp = document.getElementById('password').value.trim();
-
-            const correctUser = "20061004";
-            const correctPass = "@Anuradha99";
-
-            if (userInp === correctUser && passInp === correctPass) {
-    // දැනට තියෙන පේජ් එක උඩම කෙලින්ම open කිරීමට
-    window.location.replace("emiliaclarke.html");
-} else {
-    alert("❌ Invalid Credentials! Access Denied. Redirecting to Home...");
-    window.location.replace("index.html"); 
-}
-
-        }
-    </script>
 
 </body>
 </html>
